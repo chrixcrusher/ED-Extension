@@ -102,6 +102,26 @@ document.addEventListener('DOMContentLoaded', () => {
     messageField.value = '';
   });
 
+  // Add event listener for process button hover effect
+  const processBtn = document.getElementById('process-btn');
+
+  processBtn.addEventListener('mouseover', function() {
+    if (encryptRadio.checked) {
+      processBtn.textContent = "Encrypt";
+    } else if (decryptRadio.checked) {
+      processBtn.textContent = "Decrypt";
+    }
+  });
+  
+  processBtn.addEventListener('mouseout', function() {
+    if (encryptRadio.checked) {
+      processBtn.textContent = "Process";
+    } else if (decryptRadio.checked) {
+      processBtn.textContent = "Process";
+    }
+  });
+
+
   document.getElementById('process-btn').addEventListener('click', () => {
     const action = document.querySelector('input[name="action"]:checked').value;
     const seedMultiplier = document.getElementById('seed-multiplier').value.trim();

@@ -3,6 +3,7 @@
 * {
   font-family: "Nanum Gothic Coding", monospace;
   font-style: normal;
+  font-size: 12px;
 }
 
 body {
@@ -59,6 +60,7 @@ h1 {
   border-radius: 5px;
 }
 
+
 #process-btn {
   padding: 5px 10px;
   margin-bottom: 10px;
@@ -73,16 +75,34 @@ h1 {
 #copy-btn {
   padding: 5px 10px;
   width: 50px;
+  margin-top: 2.5px;
   height: 25px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+#copy-btn:hover {
+  border-color: #007BFF; /* Change the color to your desired hover color */
 }
 
 #export-btn {
   padding: 5px 10px;
-  margin-left: 5px;
+  margin-left: 94px;
+  margin-top: 2.5px;
   width: 150px;
   height: 25px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+#export-btn:hover {
+  border-color: #007BFF; /* Change the color to your desired hover color */
 }
 
 #clear-file-btn {
-  margin-top: 1px;
+  margin-top: 2.5px;
+}
+
+#clear-file-btn:hover {
+  border-color: #007BFF; /* Change the color to your desired hover color */
 }
