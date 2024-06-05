@@ -69,7 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const title = document.getElementById('title');
   const messageField = document.getElementById('message');
   const fileInput = document.getElementById('file-input');
+  const fileLabel = document.getElementById('file-label');
   const clearFileButton = document.getElementById('clear-file-btn');
+
 
   // Add event listener to the "Decrypt" radio button
   decryptRadio.addEventListener('change', function() {
@@ -121,9 +123,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+// Add event listener for file input hover effect
+fileInput.addEventListener('mouseover', function() {
+  fileLabel.textContent = "Only accept txt & json files:";
+});
+
+fileInput.addEventListener('mouseout', function() {
+  fileLabel.textContent = "File:";
+});
+
   // Add event listener for file input change to validate file format
   fileInput.addEventListener('change', function() {
-    const allowedFormats = ['text/plain', 'text/html', 'text/rtf', 'application/json']; // Add any other allowed formats
+    const allowedFormats = ['text/plain', 'application/json']; // Only works for txt and json files properly
     const file = fileInput.files[0];
     if (file && !allowedFormats.includes(file.type)) {
       alert('Invalid file format. Please select a valid text file.');
