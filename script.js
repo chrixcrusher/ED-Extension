@@ -61,7 +61,6 @@ function decryptMessage(encryptedMessage, seedKey, multiplier) {
 
 
 // Add event listeners for buttons
-// Add event listeners for buttons
 document.addEventListener('DOMContentLoaded', () => {
 
   // Select the radio buttons and title element
@@ -76,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
   decryptRadio.addEventListener('change', function() {
     if (decryptRadio.checked) {
       title.textContent = 'Decrypt your message...';
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
     } 
   });
 
@@ -83,6 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
   encryptRadio.addEventListener('change', function() {
     if (encryptRadio.checked) {
       title.textContent = 'Encrypt your message...';
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
     } 
   });
 
@@ -98,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
     messageField.placeholder = 'Message is disabled when file is selected.';
     messageField.value = '';
   });
-
 
   document.getElementById('process-btn').addEventListener('click', () => {
     const action = document.querySelector('input[name="action"]:checked').value;
