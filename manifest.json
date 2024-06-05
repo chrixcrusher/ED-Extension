@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "E/D Extension",
+    "name": "E/Dify Extension",
     "version": "1.01",
     "description": "A simple Chrome extension for encrypting and decrypting messages.",
     "permissions": ["activeTab"],
