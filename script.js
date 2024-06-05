@@ -159,8 +159,27 @@ fileInput.addEventListener('mouseout', function() {
     console.log(`Seed Key: ${seedKey}, Multiplier: ${multiplier}`);
     console.log(`Message: ${message}`);
 
-    if (isNaN(seedKey) || isNaN(multiplier) || multiplier <= 0 || multiplier > 50) {
-      alert('Invalid seed key and multiplier format. Please enter a valid format like "1-50" (Multiplier cannot exceed 50).');
+    //Check if seedKey and multiplier are valid
+    if (isNaN(seedKey) || isNaN(multiplier)) {
+      alert('Invalid seed key and multiplier format. Please enter a valid format like "1-2".');
+      return;
+    }
+
+    // Check if seedKey is a positive integer
+    if (!Number.isInteger(seedKey) || seedKey <= 0) {
+      alert('Seed key must be a positive integer.');
+      return;
+    }
+
+    // Check if multiplier is a positive integer
+    if (!Number.isInteger(multiplier) || multiplier <= 0) {
+      alert('Multiplier must be a positive integer.');
+      return;
+    }
+
+    // Check if multiplier is less than 50
+    if (multiplier > 50) {
+      alert('Multiplier cannot exceed 50.');
       return;
     }
 
