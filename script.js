@@ -151,31 +151,26 @@ fileInput.addEventListener('mouseout', function() {
   document.getElementById('process-btn').addEventListener('click', () => {
     const action = document.querySelector('input[name="action"]:checked').value;
     const seedMultiplier = document.getElementById('seed-multiplier').value.trim();
-    const [seedKey, multiplier] = seedMultiplier.split('-').map(Number);
-    const message = messageField.value.trim();
+    const [seedKeyStr, multiplierStr] = seedMultiplier.split('-');
+  
+    // Regex to ensure only digits
+    const digitRegex = /^\d+$/;
+  
+    // Check if seedKeyStr and multiplierStr are digits only
+    if (!digitRegex.test(seedKeyStr) || !digitRegex.test(multiplierStr)) {
+      alert('Invalid format. Please enter a valid format like "1-2".');
+      return;
+    }
+  
+    const seedKey = Number(seedKeyStr);
+    const multiplier = Number(multiplierStr);
+    const message = messageField.value.trim(); // Ensure this line is included
 
     // Debugging logs
     console.log(`Action: ${action}`);
     console.log(`Seed Key: ${seedKey}, Multiplier: ${multiplier}`);
     console.log(`Message: ${message}`);
 
-    //Check if seedKey and multiplier are valid
-    if (isNaN(seedKey) || isNaN(multiplier)) {
-      alert('Invalid seed key and multiplier format. Please enter a valid format like "1-2".');
-      return;
-    }
-
-    // Check if seedKey is a positive integer
-    if (!Number.isInteger(seedKey) || seedKey <= 0) {
-      alert('Seed key must be a positive integer.');
-      return;
-    }
-
-    // Check if multiplier is a positive integer
-    if (!Number.isInteger(multiplier) || multiplier <= 0) {
-      alert('Multiplier must be a positive integer.');
-      return;
-    }
 
     // Check if multiplier is less than 50
     if (multiplier > 50) {
