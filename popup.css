@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  .action-buttons {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .input-group,
+  .output-group {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .input-group label,
+  .output-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input,
+  .output-group textarea,
+  .input-group textarea {
+    width: calc(100% - 10px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #process-btn {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  
+  #process-btn:hover {
+    border-color: #007BFF; /* Change the color to your desired hover color */
+  }
+  
+  #copy-btn {
+    padding: 5px 10px;
+  }
+
+  #export-btn {
+    padding: 5px 10px;
+    margin-left: 5px;
+  }
+  
+  #clear-file-btn {
+    margin-top: 1px;
+  }
