@@ -121,6 +121,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Add event listener for file input change to validate file format
+  fileInput.addEventListener('change', function() {
+    const allowedFormats = ['text/plain', 'text/html', 'text/rtf', 'application/json']; // Add any other allowed formats
+    const file = fileInput.files[0];
+    if (file && !allowedFormats.includes(file.type)) {
+      alert('Invalid file format. Please select a valid text file.');
+      fileInput.value = ''; // Clear the selected file
+      messageField.disabled = false;
+      messageField.placeholder = 'Enter your message';
+    } else {
+      messageField.disabled = true;
+      messageField.placeholder = 'Message is disabled when file is selected.';
+      messageField.value = '';
+    }
+  });
 
   document.getElementById('process-btn').addEventListener('click', () => {
     const action = document.querySelector('input[name="action"]:checked').value;
